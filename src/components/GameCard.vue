@@ -34,7 +34,9 @@ export default {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            padding: 1rem;
+            text-align: center;
+            gap: 1rem;
         }
     }
 </style>
