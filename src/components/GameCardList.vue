@@ -19,7 +19,6 @@
         <GameCard 
         v-for="card in store.CardList" 
         :key="card.id"
-        class="card"
         :cardsData="card"/>
     </div>
 </template>
