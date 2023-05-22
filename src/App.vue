@@ -23,8 +23,10 @@ export default {
 
 <template>
   <body>
-    
-  <h1>Yu-Gi-Ho Api</h1>
+    <div class="header">
+      <img src="https://3.bp.blogspot.com/-wLH_qbmRoJU/TZdYCkrQuZI/AAAAAAAAAw0/G1_uzsANMI8/s1600/yugioh+logo.png" alt="">
+      <h1>Yu-Gi-Ho Api</h1>
+    </div>
 
   <main>
     <AppSearch/>
@@ -36,6 +38,17 @@ export default {
 
 <style lang="scss">
 @use "./assets/styles/general.scss";
+
+.header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  img {
+    padding: 1rem;
+    width: 200px;
+  }
+}
 
   h1 {
     width: 100%;
