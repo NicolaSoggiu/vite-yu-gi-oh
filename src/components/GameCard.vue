@@ -7,7 +7,7 @@ export default {
 </script>
 
 <template>
-    <img :src="cardsData.card_images.image_url" :alt="cardsData.name">
+    <img :src="cardsData.card_images[0].image_url" :alt="cardsData.name">
     <h2> {{ cardsData.name }} </h2>
 </template>
 
