@@ -7,10 +7,34 @@ export default {
 </script>
 
 <template>
-    <img :src="cardsData.card_images[0].image_url" :alt="cardsData.name">
-    <h2> {{ cardsData.name }} </h2>
+    <div class="card">
+        <img :src="cardsData.card_images[0].image_url" :alt="cardsData.name">
+        <div class="description">
+            <h2> {{ cardsData.name }} </h2>
+            <span>{{ cardsData.type }}</span>
+        </div>
+        
+    </div>
 </template>
 
 <style lang="scss" scoped>
 
+    .card {   
+        width: calc((100% - 12rem) / 5);
+        background-color: #D48F38;
+        img {
+            width: 100%;
+        }
+        h2 {
+            color: white;
+            text-align: center;
+            font-size: .8rem;
+        }
+        .description {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
 </style>

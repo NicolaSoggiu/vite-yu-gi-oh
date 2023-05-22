@@ -25,4 +25,14 @@
 
 <style lang="scss" scoped>
 
+    .cards-container {
+        max-width: 1000px;
+        margin-inline: auto;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: .5rem;
+        padding: 1rem;
+        background-color: white;
+    }
 </style>

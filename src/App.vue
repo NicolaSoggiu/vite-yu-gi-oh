@@ -22,15 +22,24 @@ export default {
 </script>
 
 <template>
-  <h1>Yu-Gi-Ho!</h1>
+  <body>
+    
+  <h1>Yu-Gi-Ho Api</h1>
 
   <main>
     <AppSearch/>
     <GameCardList/>
     <Results/>
   </main>
+</body>
 </template>
 
 <style lang="scss">
+@use "./assets/styles/general.scss";
 
+  h1 {
+    width: 100%;
+    padding: 1rem;
+    background-color: white;
+  }
 </style>

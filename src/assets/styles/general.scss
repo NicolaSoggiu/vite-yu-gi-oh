@@ -1,3 +1,6 @@
-@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 @use "./reset";
 @use "./variables";
+
+body {
+  background-color: #d48f38;
+}
