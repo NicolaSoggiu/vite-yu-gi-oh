@@ -14,7 +14,8 @@
     }
 </script>
 
-<template>
+<template> 
+<div class="container">
     <div class="founds">
         <span>Founds 15 cards</span>
     </div>
@@ -24,18 +25,23 @@
         :key="card.id"
         :cardsData="card"/>
     </div>
+</div>
 </template>
 
 <style lang="scss" scoped>
 
+
+.container {
+    max-width: 1000px;
+    margin-inline: auto;
+}
     .cards-container {
-        max-width: 1000px;
-        margin-inline: auto;
+        margin-bottom: 2rem;
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
         gap: .5rem;
-        padding: 1rem;
+        padding-bottom: 1rem;
         background-color: white;
     }
 

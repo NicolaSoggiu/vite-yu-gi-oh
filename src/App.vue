@@ -8,17 +8,32 @@
 export default {
   data() {
     return {
-          store,
-        }
-      },
-        components: {
-            AppSearch, GameCardList, Results,
+      store,
+    }
+  },
+  components: {
+    AppSearch, GameCardList, Results,
+  },
+  methods: {
+    requestDataFromApi(objSearchParameters) {
+      console.log(objSearchParameters)
+      axios.
+        get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0", {
+          params: {
+            name: objSearchParameters.searchStr,
+            archetype: objSearchParameters.archetype,
+          }
+        })
+        .then((response) => (this.store.CardList = response.data.data));
+    },
   },
   created() {
-    axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0")
-      .then((response) => (this.store.CardList = response.data.data));
-        }
-    }
+    this.requestDataFromApi({
+      searchStr: "",
+      archetype: "",
+    });
+  }
+}
 </script>
 
 <template>
@@ -29,7 +44,7 @@ export default {
     </div>
 
   <main>
-    <AppSearch/>
+    <AppSearch @performSearch="requestDataFromApi"/>
     <GameCardList/>
     <Results/>
   </main>
@@ -37,18 +52,18 @@ export default {
 </template>
 
 <style lang="scss">
-@use "./assets/styles/general.scss";
+  @use "./assets/styles/general.scss";
 
-.header {
-  background-color: white;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  img {
-    padding: 1rem;
-    width: 200px;
+  .header {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    img {
+      padding: 1rem;
+      width: 200px;
+    }
   }
-}
 
   h1 {
     width: 100%;

@@ -11,7 +11,7 @@ export default {
         <img :src="cardsData.card_images[0].image_url" :alt="cardsData.name">
         <div class="description">
             <h2> {{ cardsData.name }} </h2>
-            <span>{{ cardsData.type }}</span>
+            <span>{{ cardsData.archetype ? cardsData.archetype : "Undefined" }}</span>
         </div>
         
     </div>
