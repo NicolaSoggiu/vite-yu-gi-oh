@@ -17,23 +17,24 @@ export default {
   methods: {
     requestDataFromApi(objSearchParameters) {
       console.log(objSearchParameters)
-      axios.
-        get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0", {
+      axios
+        .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
+        .then((response) => (this.store.AppList = response.data.data));
+      axios
+        .get("https://db.ygoprodeck.com/api/v7/archetypes.php?num=20&offet=0")
+        .then((response) => (this.store.listArchetype = response.data));
+      },
+      requestFilteredCards() {
+      axios
+      .get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?`, {
           params: {
-            name: objSearchParameters.searchStr,
-            archetype: objSearchParameters.archetype,
-          }
+            archetype: this.store.selectedOption,
+          },
         })
-        .then((response) => (this.store.CardList = response.data.data));
+        .then((response) => (this.store.AppList = response.data.data));
+      }
     },
-  },
-  created() {
-    this.requestDataFromApi({
-      searchStr: "",
-      archetype: "",
-    });
   }
-}
 </script>
 
 <template>
@@ -44,7 +45,7 @@ export default {
     </div>
 
   <main>
-    <AppSearch @performSearch="requestDataFromApi"/>
+    <AppSearch @filteredSearch="this.requestFilteredCards"/>
     <GameCardList/>
     <Results/>
   </main>

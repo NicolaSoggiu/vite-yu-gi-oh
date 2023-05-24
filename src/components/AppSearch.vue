@@ -1,7 +1,10 @@
 <script>
+
+import { store } from "../store";
 export default {
     data() {
         return {
+            store,
             searchStr: "",
             searchArchetypes: "",
             archethypes: ["alien"]
@@ -20,14 +23,12 @@ export default {
 
 <template>
     <div class="btn">
-        <input type="text" placeholder="Search card" 
-        v-model="searchStr" 
-        @keyup.enter="$emit('performSearch', searchStr )">
-        <select name="archetype" id="" v-moedl="searchArchetypes">
-            <option :value="archetype">Select archetype</option>
+        <select name="archetype" id=""
+        v-model="store.selectedOption" 
+        @change="this.$emit('filteredSearch')">
+            <option value="#">Select archetype</option>
             <option> Alien </option>
         </select>
-        <button @click="$emit('performSearch', searchStr )">Search</button>
         <button>Reset</button>
     </div>
 </template>

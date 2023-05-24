@@ -21,7 +21,7 @@
     </div>
     <div class="cards-container">
         <GameCard 
-        v-for="card in store.CardList" 
+        v-for="card in store.AppList" 
         :key="card.id"
         :cardsData="card"/>
     </div>
